@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "id": "oGHzjo_qdOE",
+      "name": "swe",
+      "email": "user3@gmail.com",
+      "phone": "9843467789"
+    },
+    {
+      "id": "2apk-CbtAOg",
+      "name": "Amitabh",
+      "email": "user3@gmail.com",
+      "phone": "9843467789"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

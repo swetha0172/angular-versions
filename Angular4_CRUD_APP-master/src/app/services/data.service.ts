@@ -7,20 +7,27 @@ export class DataService {
 
     constructor(public http: Http) {
     }
+
+    private readonly baseUrl = 'http://localhost:3000/users';
+
     getUsers() {
-        return this.http.get('https://jsonplaceholder.typicode.com/users')
-        .map (res => res.json());
+        return this.http.get(this.baseUrl)
+        .map(res => res.json());
     }
-    addUser(user) {
-        return this.http.post('https://jsonplaceholder.typicode.com/users', user)
-        .map (res => res.json());
+
+    addUser(user: any) {
+        return this.http.post(this.baseUrl, user)
+        .map(res => res.json());
     }
-    deleteUser(id) {
-        return this.http.delete('https://jsonplaceholder.typicode.com/users/' + id)
-        .map (res => res.json());
+
+    deleteUser(id: any) {
+        return this.http.delete(this.baseUrl + '/' + id)
+        .map(res => res.json());
     }
-    updateUser(user) {
-        return this.http.put('https://jsonplaceholder.typicode.com/users/' + user .id, user)
-        .map (res => res.json());
+
+    updateUser(user: any) {
+        return this.http.put(this.baseUrl + '/' + user.id, user)
+        .map(res => res.json());
     }
 }
+
