@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -17,22 +17,15 @@ const appRoutes: Routes = [
   { path: 'sandbox', component: SandboxComponent }
 ];
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    SandboxComponent,
-    HomeComponent,
-    AboutComponent,
-    NavbarComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    RouterModule.forRoot(appRoutes)
-  ],
-  providers: [DataService],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        SandboxComponent,
+        HomeComponent,
+        AboutComponent,
+        NavbarComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        FormsModule,
+        RouterModule.forRoot(appRoutes)], providers: [DataService, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}
 
