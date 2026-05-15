@@ -55,7 +55,8 @@ import { DataService } from '../../services/data.service';
         </div>
       </div>
     </div>
-    `
+    `,
+    standalone: false
 })
 export class SandboxComponent implements OnInit {
     users: any[] = [];
